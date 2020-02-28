@@ -1,0 +1,38 @@
+.container {
+  position: relative;
+  text-transform: uppercase;
+  background-color: blue;
+}
+
+.navContainer {
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navItem {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+.currentItem {
+  color: green;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 20px;
+}
+
+.downMenu {
+  padding: 7px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: inherit;
+  display: flex;
+  justify-content: center;
+}
