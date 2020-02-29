@@ -2,17 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b3c4939-d6c5-4783-9227-4c8d522e6e6e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CalendarNav/CalendarNav.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CalendarNav/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Button/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Calendar/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Date/Date.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Date/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Month/Month.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Month/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Week/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/WeekDays/Week.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/WeekDays/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/_variables.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CalendarNav/CalendarNav.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CalendarNav/CalendarNav.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CalendarNav/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CalendarNav/index.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="SCSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -36,29 +42,24 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1YRfaW5z6MDBbnkPaevcjw6h7RS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v12.15.0/bin/node" />
+    <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="$USER_HOME$/.nvm/versions/node/v12.15.0/lib/node_modules/npm" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -75,6 +76,18 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -86,6 +99,8 @@
       <option name="presentableId" value="Default" />
       <updated>1582910390194</updated>
       <workItem from="1582910394598" duration="3813000" />
+      <workItem from="1582956466053" duration="15750000" />
+      <workItem from="1582982935770" duration="4683000" />
     </task>
     <servers />
   </component>
@@ -97,10 +112,22 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="336" y="317" key="com.intellij.ide.util.TipDialog" timestamp="1582984060643">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="336" y="317" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1582984060643" />
+    <state x="303" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1582961644045">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="303" y="211" width="672" height="678" key="search.everywhere.popup/0.0.1280.984@0.0.1280.984" timestamp="1582961644045" />
   </component>
 </project>

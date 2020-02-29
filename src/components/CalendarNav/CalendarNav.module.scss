@@ -1,7 +1,9 @@
+@import "../../styles/variables";
+
 .container {
   position: relative;
   text-transform: uppercase;
-  background-color: blue;
+  background-color: $primary-color;
 }
 
 .navContainer {
@@ -12,14 +14,14 @@
 }
 
 .navItem {
-  color: white;
+  color: #48C1C2;
   font-size: 12px;
   font-weight: 700;
   line-height: 14px;
 }
 
 .currentItem {
-  color: green;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 800;
   line-height: 20px;
@@ -35,4 +37,5 @@
   background-color: inherit;
   display: flex;
   justify-content: center;
+  z-index: 9999;
 }
