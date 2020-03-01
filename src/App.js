@@ -9,10 +9,10 @@ import Calendar from "./components/Calendar";
 
 function App() {
   return (
-      <>
 
-    <Calendar mode="month"/>
-    </>
+
+    <Calendar mode="m"/>
+
   );
 }
 

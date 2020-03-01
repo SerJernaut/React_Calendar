@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b3c4939-d6c5-4783-9227-4c8d522e6e6e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Button/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Calendar/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Date/Date.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Date/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Month/Month.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Month/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Week/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/WeekDays/Week.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/WeekDays/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/_variables.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CalendarNav/CalendarNav.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CalendarNav/CalendarNav.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Calendar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calendar/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CalendarNav/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CalendarNav/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Month/Month.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Month/Month.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +89,9 @@
       <updated>1582910390194</updated>
       <workItem from="1582910394598" duration="3813000" />
       <workItem from="1582956466053" duration="15750000" />
-      <workItem from="1582982935770" duration="4683000" />
+      <workItem from="1582982935770" duration="13352000" />
+      <workItem from="1583009300843" duration="23000" />
+      <workItem from="1583054740270" duration="1549000" />
     </task>
     <servers />
   </component>
@@ -121,10 +112,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="336" y="317" key="com.intellij.ide.util.TipDialog" timestamp="1582984060643">
+    <state x="336" y="317" key="com.intellij.ide.util.TipDialog" timestamp="1583054754833">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="336" y="317" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1582984060643" />
+    <state x="336" y="317" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1583054754833" />
     <state x="303" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1582961644045">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

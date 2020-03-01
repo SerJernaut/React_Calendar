@@ -13,39 +13,41 @@ class CalendarNav extends React.Component{
     }
   }
 
-  openMenu = () =>{
+  toggleMenu = () =>{
     this.setState({
       isMenuOpen: !this.state.isMenuOpen
                   })
   }
 
-  nextMonth = () => {
-
+  onButtonClick = () => {
+    this.props.changeMode();
+    this.toggleMenu();
   }
 
-  prevMonth = () => {
-
-  }
 
 
   render(){
     const {isMenuOpen} = this.state;
-    const {firstDate} = this.props;
+    const {nextMonth, prevMonth, currentMonth, firstDate, lastDate} = this.props;
     return (
       <div className={styles.container}>
         <nav className={styles.navContainer}>
-          <div className={styles.navItem} onClick={this.prevMonth}>May</div>
-          <div className={styles.currentItem} onClick={this.openMenu}>
-            {firstDate}
+          <div className={styles.navItem} onClick={function(){
+            prevMonth(firstDate, lastDate, currentMonth)
+          }}>{currentMonth.subtract(1, 'M').format('MMM')}</div>
+          <div className={styles.currentItem} onClick={this.toggleMenu}>
+            {currentMonth.format('MMM')}
             <Icon size={'24px'} path={mdiChevronDown} color={'white'} rotate={isMenuOpen?180:0}/>
           </div>
-          <div className={styles.navItem} onClick={this.nextMonth}>Jul</div>
+          <div className={styles.navItem} onClick={function(){
+            nextMonth(firstDate, lastDate, currentMonth)
+          }}>{currentMonth.add(1, 'M').format('MMM')}</div>
         </nav>
         {
           isMenuOpen && (
             <div className={styles.downMenu}>
-              <button onClick={this.props.changeMode}>This week</button>
-              <button onClick={this.props.changeMode}>This month</button>
+              <button onClick={this.onButtonClick} >This week</button>
+              <button onClick={this.onButtonClick}  >This month</button>
             </div>
           )
 

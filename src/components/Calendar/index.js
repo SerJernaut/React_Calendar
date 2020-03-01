@@ -13,7 +13,8 @@ class Calendar extends React.Component{
             mode: mode,
             selectedDate: moment(),
             firstDate: moment().startOf(mode),
-            lastDate: moment().endOf(mode)
+            lastDate: moment().endOf(mode),
+            currentMonth: moment()
         }
     }
 
@@ -25,28 +26,48 @@ class Calendar extends React.Component{
 
     changeMode = ()  => {
         const {mode} = this.state;
-        if(mode == "month")
+        if(mode === "m")
         this.setState({
-            mode: "week"
+            mode: "w"
         })
         else {
             this.setState({
-                mode: "month"
+                mode: "m"
             })
         }
 
 
     }
 
+    nextMonth = (firstDate, lastDate, currentMonth) => {
+        this.setState({
+            firstDate: firstDate.add(1, 'M'),
+            lastDate: lastDate.add(1, 'M'),
+            currentMonth: currentMonth.add(1, 'M')
+        })
+    }
+
+    prevMonth = (firstDate, lastDate, currentMonth) => {
+
+        this.setState({
+            firstDate: firstDate.subtract(1, 'M'),
+            lastDate: lastDate.subtract(1, 'M'),
+            currentMonth: currentMonth.subtract(1, 'M')
+        })
+    }
+
 
 
 
     render() {
-        const {selectedDate, firstDate} = this.state;
+        const {selectedDate, firstDate, lastDate , currentMonth, mode} = this.state;
+        console.log(firstDate);
         return (  <>
-                <CalendarNav changeMode={this.changeMode} firstDate={firstDate}/>
+                <CalendarNav prevMonth={this.prevMonth} nextMonth={this.nextMonth} changeMode={this.changeMode} firstDate={firstDate} lastDate={lastDate} currentMonth={currentMonth}/>
             <WeekDays/>
-            <Month selectCurrentDay={this.selectCurrentDay} selectedDate={selectedDate} />
+            {   mode == "m" ? <Month selectCurrentDay={this.selectCurrentDay} selectedDate={selectedDate} />
+                : 0
+            }
         </>
         )
 
