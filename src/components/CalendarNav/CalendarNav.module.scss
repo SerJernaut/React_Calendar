@@ -13,18 +13,13 @@
   align-items: center;
 }
 
-.navItem {
-  color: #48C1C2;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 14px;
-}
 
 .currentItem {
   color: #ffffff;
   font-size: 16px;
   font-weight: 800;
   line-height: 20px;
+  cursor: pointer;
 }
 
 .downMenu {

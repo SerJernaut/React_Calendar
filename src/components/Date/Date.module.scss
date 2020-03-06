@@ -1,11 +1,27 @@
 @import "../../styles/variables";
 
-.monthDays {
-  width: calc(100%/8);
+.dayContainer {
   height: 50px;
   color: $primary-color;
   font: 16px 400 $primary-font-family;
   text-align: center;
   letter-spacing: -0.28px;
   line-height: 50px;
+  cursor: pointer;
+  width: 235.8px;
+}
+
+
+
+.hideDay {
+  visibility: hidden;
+}
+
+.selectedDay {
+  background: $primary-color;
+  color: white;
+}
+
+.currentDay {
+  color: red;
 }

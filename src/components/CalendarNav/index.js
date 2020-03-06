@@ -2,52 +2,79 @@
 import styles from './CalendarNav.module.scss';
 import Icon from '@mdi/react';
 import {mdiChevronDown} from '@mdi/js';
-import PropTypes from 'prop-types';
-import moment from "moment";
+import {CALENDAR_MODE} from "../../constants";
+  import NavButton from "../Button";
 
-class CalendarNav extends React.Component{
+  class CalendarNav extends React.Component{
   constructor (props) {
     super(props);
     this.state = {
-      isMenuOpen: false,
+      isMenuOpened: false,
     }
+    this.containerRef = React.createRef();
+    this.downMenuRef = React.createRef();
   }
 
   toggleMenu = () =>{
     this.setState({
-      isMenuOpen: !this.state.isMenuOpen
+      isMenuOpened: !this.state.isMenuOpened
                   })
   }
 
-  onButtonClick = () => {
-    this.props.changeMode();
+  onThisWeekButtonClick = () => {
+    this.props.changeMode(CALENDAR_MODE.WEEK);
     this.toggleMenu();
   }
 
+  onThisMonthButtonClick = () => {
+    this.props.changeMode(CALENDAR_MODE.MONTH);
+    this.toggleMenu();
+  }
+
+  onPrevClick = () => {
+    this.props.onPrevOrNextClick(this.firstDate, false )
+  }
+
+  onNextClick = () => {
+    this.props.onPrevOrNextClick(this.firstDate, true )
+  }
+
+  onOutsideClick = (e) => {
+    if(this.state.isMenuOpened && !this.containerRef.current.contains(e.target) && !this.downMenuRef.current.contains(e.target)){
+      this.toggleMenu();
+    }
+  }
+
+    componentDidMount() {
+      window.addEventListener('click', this.onOutsideClick);
+    }
+
+    componentWillUnmount() {
+      window.removeEventListener('click', this.onOutsideClick);
+    }
 
 
-  render(){
-    const {isMenuOpen} = this.state;
-    const {nextMonth, prevMonth, currentMonth, firstDate, lastDate} = this.props;
+    render(){
+    const {isMenuOpened} = this.state,
+        {firstDate, renderPrevOrNextButton} = this.props,
+        renderPrevButton = renderPrevOrNextButton(false),
+        renderNextButton = renderPrevOrNextButton(true);
+
     return (
       <div className={styles.container}>
-        <nav className={styles.navContainer}>
-          <div className={styles.navItem} onClick={function(){
-            prevMonth(firstDate, lastDate, currentMonth)
-          }}>{currentMonth.subtract(1, 'M').format('MMM')}</div>
-          <div className={styles.currentItem} onClick={this.toggleMenu}>
-            {currentMonth.format('MMM')}
-            <Icon size={'24px'} path={mdiChevronDown} color={'white'} rotate={isMenuOpen?180:0}/>
+        <nav className={styles.navContainer} ref={this.containerRef}>
+          <NavButton onClick={this.onPrevClick} renderButton={renderPrevButton}/>
+          <div className={styles.currentItem} onClick={this.toggleMenu} >
+            {firstDate.format('MMM')}
+            <Icon size={'24px'} path={mdiChevronDown} color={'white'} rotate={isMenuOpened?180:0}/>
           </div>
-          <div className={styles.navItem} onClick={function(){
-            nextMonth(firstDate, lastDate, currentMonth)
-          }}>{currentMonth.add(1, 'M').format('MMM')}</div>
+          <NavButton onClick={this.onNextClick} renderButton={renderNextButton}/>
         </nav>
         {
-          isMenuOpen && (
-            <div className={styles.downMenu}>
-              <button onClick={this.onButtonClick} >This week</button>
-              <button onClick={this.onButtonClick}  >This month</button>
+          isMenuOpened && (
+            <div className={styles.downMenu} ref={this.downMenuRef} >
+              <button onClick={this.onThisWeekButtonClick} >This week</button>
+              <button onClick={this.onThisMonthButtonClick}  >This month</button>
             </div>
           )
 

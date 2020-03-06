@@ -1,74 +1,113 @@
 import React from "react";
-import Month from "../Month";
 import moment from "moment";
 import CalendarNav from "../CalendarNav";
 import WeekDays from "../WeekDays";
+import {CALENDAR_MODE, CALENDAR_FORMAT} from "../../constants";
+import Week from "../Week";
+import styles from './Calendar.module.scss';
 
-class Calendar extends React.Component{
+class Calendar extends React.Component {
     constructor(props) {
         super(props);
-        const {mode} = this.props;
         this.state = {
-            currentDay: moment(),
-            mode: mode,
+            currentDate: moment(),
+            mode: CALENDAR_MODE.MONTH,
             selectedDate: moment(),
-            firstDate: moment().startOf(mode),
-            lastDate: moment().endOf(mode),
-            currentMonth: moment()
+            firstDate: moment().startOf(CALENDAR_MODE.MONTH),
+            lastDate: moment().endOf(CALENDAR_MODE.MONTH),
         }
     }
 
-    selectCurrentDay = day => {
+    selectDate = day => {
         this.setState({
             selectedDate: day,
         })
     }
 
-    changeMode = ()  => {
-        const {mode} = this.state;
-        if(mode === "m")
+    changeMode = (mode) => {
         this.setState({
-            mode: "w"
+            mode: mode,
+            firstDate: moment().startOf(mode),
+            lastDate: moment().endOf(mode)
         })
-        else {
+
+
+    }
+
+    onPrevOrNextClick = (firstDate, isNext) => {
+        const {mode, firstDate: firstDateClone, lastDate: lastDateClone} = this.state;
+
+        isNext ?
             this.setState({
-                mode: "m"
+                firstDate: firstDateClone.add(1, mode),
+                lastDate: lastDateClone.add(1, mode)
             })
+            : this.setState({
+                firstDate: firstDateClone.subtract(1, mode),
+                lastDate: lastDateClone.subtract(1, mode)
+
+            })
+    }
+
+
+    renderPrevOrNextButton = (isNext) => {
+        const {mode, firstDate} = this.state, firstDateClone = firstDate.clone();
+        if(isNext) {
+            if(mode === CALENDAR_MODE.MONTH) {
+                return firstDateClone.add(1, mode).format(CALENDAR_FORMAT.MONTH_SHORT_NAME);
+            }
+            else return 'next'
         }
 
+        else {
+            if(mode === CALENDAR_MODE.MONTH) {
+                return firstDateClone.subtract(1, mode).format(CALENDAR_FORMAT.MONTH_SHORT_NAME);
+            }
+            else return 'prev';
+        }
 
     }
 
-    nextMonth = (firstDate, lastDate, currentMonth) => {
-        this.setState({
-            firstDate: firstDate.add(1, 'M'),
-            lastDate: lastDate.add(1, 'M'),
-            currentMonth: currentMonth.add(1, 'M')
-        })
-    }
+    renderMonthOrWeek = () => {
+        const {firstDate, lastDate, currentDate, selectedDate, mode} = this.state,
+            selectDate = this.selectDate,
+            weeks = [],
+            firstSaturdayCalendarDay = firstDate.clone().day(-1);
+            console.log(firstDate)
+            if(mode === CALENDAR_MODE.MONTH){
+                while(firstSaturdayCalendarDay.isSameOrBefore(lastDate)){
+                    weeks.push(
+                        Array(7).fill(0).map(() => firstSaturdayCalendarDay.add(1, 'day').clone())
+                    )
+                }
+            }
+            else {
+                weeks.push(
+                    Array(7).fill(0).map(() => firstSaturdayCalendarDay.add(1, 'day').clone())
+                )
+            }
 
-    prevMonth = (firstDate, lastDate, currentMonth) => {
 
-        this.setState({
-            firstDate: firstDate.subtract(1, 'M'),
-            lastDate: lastDate.subtract(1, 'M'),
-            currentMonth: currentMonth.subtract(1, 'M')
+
+
+        return weeks.map((week, index) => {
+            return <Week week={week} key={index} firstDate={firstDate} lastDate={lastDate} currentDate={currentDate} selectedDate={selectedDate} selectDate={selectDate}/>
         })
+
     }
 
 
 
 
     render() {
-        const {selectedDate, firstDate, lastDate , currentMonth, mode} = this.state;
-        console.log(firstDate);
-        return (  <>
-                <CalendarNav prevMonth={this.prevMonth} nextMonth={this.nextMonth} changeMode={this.changeMode} firstDate={firstDate} lastDate={lastDate} currentMonth={currentMonth}/>
-            <WeekDays/>
-            {   mode == "m" ? <Month selectCurrentDay={this.selectCurrentDay} selectedDate={selectedDate} />
-                : 0
-            }
-        </>
+        console.log(this.state.mode)
+        const {firstDate, lastDate} = this.state;
+        return (<>
+                <CalendarNav onPrevOrNextClick={this.onPrevOrNextClick} renderPrevOrNextButton={this.renderPrevOrNextButton} changeMode={this.changeMode} firstDate={firstDate}
+                             lastDate={lastDate}/>
+                <WeekDays/>
+                <div className={styles.calendarContainer}>{this.renderMonthOrWeek()}</div>
+            </>
         )
 
     }
