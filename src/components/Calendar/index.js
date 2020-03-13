@@ -51,17 +51,17 @@ class Calendar extends React.Component {
 
 
     renderPrevOrNextButton = (isNext) => {
-        const {mode, firstDate} = this.state, firstDateClone = firstDate.clone();
+        const {mode, lastDate} = this.state, lastDateClone = lastDate.clone();
         if(isNext) {
             if(mode === CALENDAR_MODE.MONTH) {
-                return firstDateClone.add(1, mode).format(CALENDAR_FORMAT.MONTH_SHORT_NAME);
+                return lastDateClone.add(1, mode).format(CALENDAR_FORMAT.MONTH_SHORT_NAME);
             }
             else return 'next'
         }
 
         else {
             if(mode === CALENDAR_MODE.MONTH) {
-                return firstDateClone.subtract(1, mode).format(CALENDAR_FORMAT.MONTH_SHORT_NAME);
+                return lastDateClone.subtract(1, mode).format(CALENDAR_FORMAT.MONTH_SHORT_NAME);
             }
             else return 'prev';
         }
@@ -73,7 +73,6 @@ class Calendar extends React.Component {
             selectDate = this.selectDate,
             weeks = [],
             firstSaturdayCalendarDay = firstDate.clone().day(-1);
-            console.log(firstDate)
             if(mode === CALENDAR_MODE.MONTH){
                 while(firstSaturdayCalendarDay.isSameOrBefore(lastDate)){
                     weeks.push(
@@ -100,13 +99,12 @@ class Calendar extends React.Component {
 
 
     render() {
-        console.log(this.state.mode)
         const {firstDate, lastDate} = this.state;
         return (<>
                 <CalendarNav onPrevOrNextClick={this.onPrevOrNextClick} renderPrevOrNextButton={this.renderPrevOrNextButton} changeMode={this.changeMode} firstDate={firstDate}
                              lastDate={lastDate}/>
                 <WeekDays/>
-                <div className={styles.calendarContainer}>{this.renderMonthOrWeek()}</div>
+                <div  className={styles.calendarContainer}>{this.renderMonthOrWeek()}</div>
             </>
         )
 

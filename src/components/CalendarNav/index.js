@@ -2,17 +2,21 @@
 import styles from './CalendarNav.module.scss';
 import Icon from '@mdi/react';
 import {mdiChevronDown} from '@mdi/js';
-import {CALENDAR_MODE} from "../../constants";
+import {CALENDAR_FORMAT, CALENDAR_MODE} from "../../constants";
+import moment from "moment";
   import NavButton from "../Button";
+  import PropTypes from 'prop-types';
 
   class CalendarNav extends React.Component{
   constructor (props) {
     super(props);
+
     this.state = {
       isMenuOpened: false,
     }
     this.containerRef = React.createRef();
     this.downMenuRef = React.createRef();
+
   }
 
   toggleMenu = () =>{
@@ -41,6 +45,7 @@ import {CALENDAR_MODE} from "../../constants";
 
   onOutsideClick = (e) => {
     if(this.state.isMenuOpened && !this.containerRef.current.contains(e.target) && !this.downMenuRef.current.contains(e.target)){
+      e.preventDefault();
       this.toggleMenu();
     }
   }
@@ -56,7 +61,7 @@ import {CALENDAR_MODE} from "../../constants";
 
     render(){
     const {isMenuOpened} = this.state,
-        {firstDate, renderPrevOrNextButton} = this.props,
+        {lastDate, renderPrevOrNextButton} = this.props,
         renderPrevButton = renderPrevOrNextButton(false),
         renderNextButton = renderPrevOrNextButton(true);
 
@@ -65,7 +70,7 @@ import {CALENDAR_MODE} from "../../constants";
         <nav className={styles.navContainer} ref={this.containerRef}>
           <NavButton onClick={this.onPrevClick} renderButton={renderPrevButton}/>
           <div className={styles.currentItem} onClick={this.toggleMenu} >
-            {firstDate.format('MMM')}
+            {lastDate.format(CALENDAR_FORMAT.MONTH_SHORT_NAME)}
             <Icon size={'24px'} path={mdiChevronDown} color={'white'} rotate={isMenuOpened?180:0}/>
           </div>
           <NavButton onClick={this.onNextClick} renderButton={renderNextButton}/>
@@ -84,7 +89,13 @@ import {CALENDAR_MODE} from "../../constants";
   }
 }
 
+CalendarNav.propTypes = {
+  changeMode: PropTypes.func.isRequired,
+  onPrevOrNextClick: PropTypes.func.isRequired,
+  renderPrevOrNextMonth: PropTypes.func.isRequired,
+  lastDate: PropTypes.instanceOf(moment).isRequired,
 
+}
 
 export default CalendarNav;
 

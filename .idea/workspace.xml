@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2000b59e-0f26-4a47-80e1-39dba0aa27a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Button/NavButton.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Calendar/Calendar.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Week/Week.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constants/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Button/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Calendar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calendar/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CalendarNav/CalendarNav.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CalendarNav/CalendarNav.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CalendarNav/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CalendarNav/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Date/Date.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Date/Date.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Date/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Date/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Month/Month.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Month/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Week/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Week/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WeekDays/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WeekDays/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +28,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -65,6 +56,9 @@
       <option name="presentableId" value="Default" />
       <updated>1583500584841</updated>
       <workItem from="1583500596253" duration="1712000" />
+      <workItem from="1583597476903" duration="641000" />
+      <workItem from="1584008570957" duration="5657000" />
+      <workItem from="1584103903464" duration="1073000" />
     </task>
     <servers />
   </component>
@@ -72,9 +66,13 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="336" y="317" key="com.intellij.ide.util.TipDialog" timestamp="1583500642470">
+    <state x="420" y="248" key="FileChooserDialogImpl" timestamp="1583597747745">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="336" y="317" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1583500642470" />
+    <state x="420" y="248" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1583597747745" />
+    <state x="336" y="317" key="com.intellij.ide.util.TipDialog" timestamp="1583597637765">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="336" y="317" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1583597637765" />
   </component>
 </project>

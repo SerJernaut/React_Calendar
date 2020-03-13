@@ -1,13 +1,8 @@
 import React from "react";
 import styles from './Week.module.scss';
 
-class WeekDays extends React.Component{
-    constructor(props) {
-        super(props);
+function WeekDays(){
 
-    }
-
-    render() {
         return (
             <div className={styles.weekDayContainer}>
                 <div className={styles.weekDay}>S</div>
@@ -21,6 +16,5 @@ class WeekDays extends React.Component{
         )
     }
 
-}
 
 export default WeekDays;

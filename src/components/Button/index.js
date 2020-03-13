@@ -1,16 +1,15 @@
 import React from "react";
 import styles from './NavButton.module.scss';
+import PropTypes from 'prop-types';
 
-class NavButton extends React.Component  {
-    constructor(props) {
-        super(props);
-    }
-
-
-    render (){
-        const {onClick, renderButton} = this.props;
+function NavButton(props) {
+        const {onClick, renderButton} = props;
         return <div className={styles.navButton} onClick={onClick}>{renderButton}</div>
-    }
+}
+
+NavButton.propTypes = {
+        onClick: PropTypes.func.isRequired,
+        renderButton: PropTypes.func.isRequired
 }
 
 export default NavButton;
